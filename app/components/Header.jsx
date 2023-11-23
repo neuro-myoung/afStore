@@ -8,7 +8,7 @@ import {useRootLoaderData} from '~/root';
 export function Header({header, isLoggedIn, cart}) {
   const {shop, menu} = header;
   return (
-    <header className="header">
+    <header className="header ">
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
         <strong>{shop.name}</strong>
       </NavLink>
@@ -41,6 +41,7 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
   }
 
   return (
+    <div className="flex items-center border-b border-white border-opacity-10 justify-center shadow-[0_8px_32px_-8px_rgba(31,38,135,0.37)] backdrop-blur-md w-full h-20 fixed top-0 px-4 z-10">
     <nav className={className} role="navigation">
       {viewport === 'mobile' && (
         <NavLink
@@ -78,6 +79,7 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
         );
       })}
     </nav>
+    </div>
   );
 }
 
