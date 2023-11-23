@@ -24,8 +24,9 @@ img {
 * --------------------------------------------------
 */
 aside {
-  background: var(--color-light);
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   height: 100vh;
   max-width: var(--aside-width);
   min-width: var(--aside-width);
@@ -33,15 +34,15 @@ aside {
   right: calc(-1 * var(--aside-width));
   top: 0;
   transition: transform 200ms ease-in-out;
+  z-index: 100;
 }
 
 aside header {
   align-items: center;
-  border-bottom: 1px solid var(--color-dark);
   display: flex;
-  height: var(--header-height);
+  height: 5rem;
   justify-content: space-between;
-  padding: 0 20px;
+  margin: 1.5rem !important;
 }
 
 aside header h3 {
@@ -50,6 +51,7 @@ aside header h3 {
 
 aside header .close {
   font-weight: bold;
+  font-size: 2rem;
   opacity: 0.8;
   text-decoration: none;
   transition: all 200ms;
@@ -61,24 +63,26 @@ aside header .close:hover {
 }
 
 aside header h2 {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.6rem !important;
   margin-top: 0;
 }
 
 aside main {
-  margin: 1rem;
+  margin: 1.5rem !important;
 }
 
 aside p {
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.25rem !important;
 }
 
 aside p:last-child {
-  margin: 0;
+  margin: 0 !important;
 }
 
-aside li {
-  margin-bottom: 0.125rem;
+aside .cart-line {
+  padding: 0.25rem !important;
+  margin-bottom: 0.5rem !important;
+  background-color: rgba(180,180,180,0.9);
 }
 
 .overlay {
@@ -190,6 +194,7 @@ aside li {
   align-items: center;
   display: flex;
   margin-left: auto;
+  gap:1rem;
 }
 
 .nav-color {
@@ -209,6 +214,16 @@ aside li {
 .nav-link:hover {
   background: #a3005d;
   color: #e2e2e2;
+}
+
+a {
+  color:#c2c2c2 !important;
+}
+
+a:hover {
+  color:#e3e3e3 !important;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 /*
@@ -255,6 +270,7 @@ aside li {
 .btns {
   display: flex;
   width: 100%;
+  height: 2rem;
   justify-content: center;
   gap: 2rem;
 }
@@ -303,8 +319,6 @@ aside li {
 * --------------------------------------------------
 */
 
-
-
 .primary-button {
   position: relative;
   transition: all 0.2s ease-in-out;
@@ -314,6 +328,7 @@ aside li {
   padding: 0.75rem 1rem;
   margin: 0;
   font-size: 1.2rem;
+  line-height: 1.5rem;
   background-image: linear-gradient(0.3turn,#655421, #D4AF37, #e4e4e4, #D4AF37, #655421);
   background-size: 300% 100%;
   border-width: 0;

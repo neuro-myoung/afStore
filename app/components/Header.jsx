@@ -96,10 +96,9 @@ function HeaderCtas({isLoggedIn, cart}) {
     <nav className="header-ctas" role="navigation">
       <HeaderMenuMobileToggle />
       <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
-        {isLoggedIn ? 'Account' : 'Sign in'}
+          {isLoggedIn ? 'Account' : 'Sign in'}
       </NavLink>
-      <SearchToggle />
-      <CartToggle cart={cart} />
+      <CartToggle cart={cart} className="cart-icon"/>
     </nav>
   );
 }
