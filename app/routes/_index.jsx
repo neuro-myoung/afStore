@@ -3,6 +3,7 @@ import {Await, useLoaderData, Link} from '@remix-run/react';
 import {Suspense} from 'react';
 import {Image, Money} from '@shopify/hydrogen';
 import {Hero} from '~/components/Hero';
+import {Collections} from '~/components/Collections';
 
 /**
  * @type {MetaFunction}
@@ -29,6 +30,7 @@ export default function Homepage() {
   return (
     <div className="home">
       <Hero collection={data.featuredCollection} />
+      <Collections />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>
   );
