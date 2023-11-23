@@ -12,14 +12,16 @@ export function Hero(props) {
             <div className="container">
                 <div className="hero-left">
                     <h1>
-                        Order your 2024 Wildlife Calendar Today!
+                        Vibrant and realistic colored pencil Art
                     </h1>
+                    <p>Original Artwork, Prints, Greeting Cards, and more ways to bring <strong>Art</strong> into your home</p>
                     <div className="btns background">
                         <PrimaryButton text="Shop Collections"></PrimaryButton>
                         <SecondaryButton text="Contact"></SecondaryButton>
                     </div>
                 </div>
                 <div className="hero-right">
+                    <h2>2024 Wildlife Calendars Available!</h2>
                 </div>
             </div>
         </div>

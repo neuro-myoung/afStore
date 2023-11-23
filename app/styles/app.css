@@ -267,12 +267,36 @@ a:hover {
   align-items:center;
 }
 
+.hero-left h1 {
+  color: #e3e3e3;
+  font-size: 3rem;
+  max-width: 600px;
+  text-align: center;
+}
+
+.hero-left p {
+  color: #c2c2c2;
+  width: 400px;
+}
+
 .btns {
   display: flex;
   width: 100%;
   height: 2rem;
   justify-content: center;
   gap: 2rem;
+}
+
+.hero-right {
+  position:relative;
+  width:100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-right h2 {
+  color: #e3e3e3;
 }
 
 .bokehContainer {
