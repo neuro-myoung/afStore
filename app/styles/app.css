@@ -9,15 +9,13 @@
 }
 
 
-* {    
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-
-
 img {
   border-radius: 4px;
+}
+
+* {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /*
@@ -148,8 +146,7 @@ aside li {
   position: fixed;
   top: 0;
   z-index: 1;
-  padding: 0 2rem;
-}
+  }
 
 .box-shadow-div {
   width: 100%;
@@ -170,28 +167,48 @@ aside li {
 .header-menu-mobile {
   display: flex;
   flex-direction: column;
-  grid-gap: 1rem;
 }
 
 .header-menu-desktop {
   display: none;
-  grid-gap: 1rem;
   @media (min-width: 45em) {
     display: flex;
-    grid-gap: 1rem;
-    margin-left: 3rem;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
 }
 
 .header-menu-item {
   cursor: pointer;
+  color: #c2c2c2;
+  position: relative;
+  height: 100%;
 }
 
 .header-ctas {
   align-items: center;
   display: flex;
-  grid-gap: 1rem;
   margin-left: auto;
+}
+
+.nav-color {
+  color: #e2e2e2;
+}
+
+.nav-link {
+  color: #c2c2c2;
+  height: 100%;
+  padding: 0 1rem !important;
+  width:8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-link:hover {
+  background: #a3005d;
+  color: #e2e2e2;
 }
 
 /*
@@ -210,6 +227,7 @@ aside li {
   display: flex;
   align-items: center;
   justify-content: center;
+  position:relative;
 }
 
 .container {
@@ -228,7 +246,9 @@ aside li {
   display:flex;
   flex-direction:column;
   width: 100%;
+  height:100%;
   justify-content:center;
+  gap: 2rem;
   align-items:center;
 }
 
@@ -250,6 +270,31 @@ aside li {
   filter: blur(3px);
   opacity: 15%;
   position: absolute;
+}
+
+.custom-shape-divider-bottom-1646606526 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index:100;
+}
+
+.custom-shape-divider-bottom-1646606526 svg {
+  position: absolute;
+  display: block;
+  width: calc(300% + 1.3px);
+  height: 147px;
+  transform: rotateY(180deg);
+  z-index:100;
+}
+
+.custom-shape-divider-bottom-1646606526 .shape-fill {
+  fill: #a3005d;
+  opacity: 40%;
+  z-index:100;
 }
 
 /*

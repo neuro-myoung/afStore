@@ -11,7 +11,7 @@ export function Header({header, isLoggedIn, cart}) {
     <header className="header ">
       <div className="box-shadow-div">
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <strong>{shop.name}</strong>
+        <strong className="nav-color">{shop.name}</strong>
       </NavLink>
       <HeaderMenu
         menu={menu}
@@ -75,7 +75,12 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
             style={activeLinkStyle}
             to={url}
           >
-            {item.title}
+
+            <div className="nav-link">
+              <p>
+                {item.title}
+              </p>
+            </div>
           </NavLink>
         );
       })}
