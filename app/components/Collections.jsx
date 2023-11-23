@@ -4,9 +4,8 @@ export async function loader({ context }) {
     return await context.storefront.query(COLLECTIONS_QUERY);
 }
 
-export function Collections() {
-    const { collections } = useLoaderData();
-    console.log(collections)
+export function Collections(props) {
+    const collections = props.collections
     return (
         <section className="w-full gap-4">
             <h2 className="whitespace-pre-wrap max-w-prose font-bold text-lead">
@@ -17,15 +16,3 @@ export function Collections() {
         </section>
     );
 }
-const COLLECTIONS_QUERY = `#graphql
-    query Collections {
-        collections(first: 2) {
-        edges {
-            node {
-            id
-            title
-            }
-        }
-        }
-    }
-  `;

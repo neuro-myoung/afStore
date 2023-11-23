@@ -4,7 +4,6 @@ import {Bokeh} from '~/components/Bokeh';
 
 export function Hero(props) {
     const collection = props
-    console.log(collection.collection.image)
 
     return (
         <div className="hero-wrapper">
