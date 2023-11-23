@@ -1,18 +1,32 @@
-import { useLoaderData } from '@remix-run/react';
+import {useLoaderData, Link} from '@remix-run/react';
+import {Image} from '@shopify/hydrogen';
 
-export async function loader({ context }) {
-    return await context.storefront.query(COLLECTIONS_QUERY);
+export async function loader({context}) {
+  return await context.storefront.query(COLLECTIONS_QUERY);
 }
+export function Collections() {
+  const {collections} = useLoaderData();
+  console.log({collections})
+  return (
+    <section className="w-full gap-4">
 
-export function Collections(props) {
-    const collections = props.collections
-    return (
-        <section className="w-full gap-4">
-            <h2 className="whitespace-pre-wrap max-w-prose font-bold text-lead">
-                Collections
-            </h2>
-            <div className="grid-flow-row grid gap-2 gap-y-6 md:gap-4 lg:gap-6 grid-cols-1 sm:grid-cols-3">
-            </div>
-        </section>
-    );
+    </section>
+  );
 }
+const COLLECTIONS_QUERY = `#graphql
+  query FeaturedCollections {
+    collections(first: 3, query: "collection_type:smart") {
+      nodes {
+        id
+        title
+        handle
+        image {
+          altText
+          width
+          height
+          url
+        }
+      }
+    }
+  }
+`;
