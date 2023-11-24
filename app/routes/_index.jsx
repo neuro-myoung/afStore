@@ -20,7 +20,7 @@ export async function loader({context}) {
   const {collections} = await storefront.query(FEATURED_COLLECTION_QUERY);
   const featuredCollection = collections.nodes[0];
   const recommendedProducts = storefront.query(RECOMMENDED_PRODUCTS_QUERY);
-  const collectionList = storefront.query(COLLECTIONS_QUERY);
+  const collectionList = await storefront.query(COLLECTIONS_QUERY);
 
   return defer({featuredCollection, recommendedProducts, collectionList});
 }
@@ -28,10 +28,11 @@ export async function loader({context}) {
 export default function Homepage() {
   /** @type {LoaderReturnData} */
   const data = useLoaderData();
+  console.log(data.collectionList)
   return (
     <div className="home">
       <Hero collection={data.featuredCollection} />
-      <Collections />
+      <Collections collections={data.collectionList} />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>
   );
@@ -154,13 +155,13 @@ const RECOMMENDED_PRODUCTS_QUERY = `#graphql
 `;
 
 const COLLECTIONS_QUERY = `#graphql
-  query Collections {
+  query primaryCollectionsQuery {
     collections(first: 3) {
-      edges {
-        node {
-          id
+      edges{
+        node{
           title
           image {
+            id
             url
             altText
           }

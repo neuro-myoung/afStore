@@ -3,22 +3,6 @@
 /* eslint-disable */
 import * as StorefrontAPI from '@shopify/hydrogen/storefront-api-types';
 
-export type FeaturedCollectionsQueryVariables = StorefrontAPI.Exact<{
-  [key: string]: never;
-}>;
-
-export type FeaturedCollectionsQuery = {
-  collections: {
-    nodes: Array<
-      Pick<StorefrontAPI.Collection, 'id' | 'title' | 'handle'> & {
-        image?: StorefrontAPI.Maybe<
-          Pick<StorefrontAPI.Image, 'altText' | 'width' | 'height' | 'url'>
-        >;
-      }
-    >;
-  };
-};
-
 export type MenuItemFragment = Pick<
   StorefrontAPI.MenuItem,
   'id' | 'resourceId' | 'tags' | 'title' | 'type' | 'url'
@@ -237,16 +221,16 @@ export type RecommendedProductsQuery = {
   };
 };
 
-export type CollectionsQueryVariables = StorefrontAPI.Exact<{
+export type PrimaryCollectionsQueryQueryVariables = StorefrontAPI.Exact<{
   [key: string]: never;
 }>;
 
-export type CollectionsQuery = {
+export type PrimaryCollectionsQueryQuery = {
   collections: {
     edges: Array<{
-      node: Pick<StorefrontAPI.Collection, 'id' | 'title'> & {
+      node: Pick<StorefrontAPI.Collection, 'title'> & {
         image?: StorefrontAPI.Maybe<
-          Pick<StorefrontAPI.Image, 'url' | 'altText'>
+          Pick<StorefrontAPI.Image, 'id' | 'url' | 'altText'>
         >;
       };
     }>;
@@ -1823,10 +1807,6 @@ export type CartApiQueryFragment = Pick<
 };
 
 interface GeneratedQueryTypes {
-  '#graphql\n  query FeaturedCollections {\n    collections(first: 3, query: "collection_type:smart") {\n      nodes {\n        id\n        title\n        handle\n        image {\n          altText\n          width\n          height\n          url\n        }\n      }\n    }\n  }\n': {
-    return: FeaturedCollectionsQuery;
-    variables: FeaturedCollectionsQueryVariables;
-  };
   '#graphql\n  fragment Shop on Shop {\n    id\n    name\n    description\n    primaryDomain {\n      url\n    }\n    brand {\n      logo {\n        image {\n          url\n        }\n      }\n    }\n  }\n  query Header(\n    $country: CountryCode\n    $headerMenuHandle: String!\n    $language: LanguageCode\n  ) @inContext(language: $language, country: $country) {\n    shop {\n      ...Shop\n    }\n    menu(handle: $headerMenuHandle) {\n      ...Menu\n    }\n  }\n  #graphql\n  fragment MenuItem on MenuItem {\n    id\n    resourceId\n    tags\n    title\n    type\n    url\n  }\n  fragment ChildMenuItem on MenuItem {\n    ...MenuItem\n  }\n  fragment ParentMenuItem on MenuItem {\n    ...MenuItem\n    items {\n      ...ChildMenuItem\n    }\n  }\n  fragment Menu on Menu {\n    id\n    items {\n      ...ParentMenuItem\n    }\n  }\n\n': {
     return: HeaderQuery;
     variables: HeaderQueryVariables;
@@ -1851,9 +1831,9 @@ interface GeneratedQueryTypes {
     return: RecommendedProductsQuery;
     variables: RecommendedProductsQueryVariables;
   };
-  '#graphql\n  query Collections {\n    collections(first: 3) {\n      edges {\n        node {\n          id\n          title\n          image {\n            url\n            altText\n          }\n        }\n      }\n    }\n  }\n    ': {
-    return: CollectionsQuery;
-    variables: CollectionsQueryVariables;
+  '#graphql\n  query primaryCollectionsQuery {\n    collections(first: 3) {\n      edges{\n        node{\n          title\n          image {\n            id\n            url\n            altText\n          }\n        }\n      }\n    }\n  }\n    ': {
+    return: PrimaryCollectionsQueryQuery;
+    variables: PrimaryCollectionsQueryQueryVariables;
   };
   '#graphql\n  query Customer(\n    $customerAccessToken: String!\n    $country: CountryCode\n    $language: LanguageCode\n  ) @inContext(country: $country, language: $language) {\n    customer(customerAccessToken: $customerAccessToken) {\n      ...Customer\n    }\n  }\n  #graphql\n  fragment CustomerOrders on Customer {\n    numberOfOrders\n    orders(\n      sortKey: PROCESSED_AT,\n      reverse: true,\n      first: $first,\n      last: $last,\n      before: $startCursor,\n      after: $endCursor\n    ) {\n      nodes {\n        ...OrderItem\n      }\n      pageInfo {\n        hasPreviousPage\n        hasNextPage\n        endCursor\n        startCursor\n      }\n    }\n  }\n  #graphql\n  fragment OrderItem on Order {\n    currentTotalPrice {\n      amount\n      currencyCode\n    }\n    financialStatus\n    fulfillmentStatus\n    id\n    lineItems(first: 10) {\n      nodes {\n        title\n        variant {\n          image {\n            url\n            altText\n            height\n            width\n          }\n        }\n      }\n    }\n    orderNumber\n    customerUrl\n    statusUrl\n    processedAt\n  }\n\n\n': {
     return: CustomerQuery;
