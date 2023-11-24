@@ -6,7 +6,7 @@ import {Image} from '@shopify/hydrogen';
 
 
 export function Hero(props) {
-    const collection = props
+    const featuredItem = props.collection.collections.edges[0].node
     return (
         <div className="hero-wrapper">
             <Bokeh/>
@@ -23,14 +23,14 @@ export function Hero(props) {
                 </div>
                 <div className="hero-right">
                     <Link
-                        key={collection.collection.id}
-                        to={`/collection/${collection.collection.handle}`}
+                        key={featuredItem.id}
+                        to={`/collection/${featuredItem.handle}`}
                         className='feature-hero-link'
                         >
                         <Image
                             className = "featured-image"
-                            data={collection.collection.image}
-                            width='60%'
+                            data={featuredItem.image}
+                            width='80%'
                         />
                     </Link>
                     <h2>2024 Wildlife Calendars Available!</h2>

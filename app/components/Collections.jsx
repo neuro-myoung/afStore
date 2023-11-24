@@ -1,20 +1,32 @@
-import {Link} from '@remix-run/react';
+import { Link } from '@remix-run/react';
 import {Image} from '@shopify/hydrogen';
 
 
 export function Collections(props) {
-    const collections = props
-    console.log(collections)
+
+    const collections = props.collections.collections.edges
+
     return (
-        <div className="collection-wrapper">
-            <h1>Shop</h1>
-            {({collections}) => (
-            <div className="recommended-products-grid">
-              {collections.collections.edges.nodes.map((collection) => (
-                <h2>collection.node.title</h2>
-              ))}
+        <div className='collections-wrapper'>
+            <h1 className="section-title"> Shop More Art </h1>
+
+            <div className='container'>
+            {collections.map((collection) => 
+                    <Link
+                        key={collection.node.id}
+                        className="collection-card"
+                        to={`/collections/${collection.node.handle}`}
+                    >
+                        <Image
+                        data={collection.node.image}
+                        width='100px'
+                        />
+                        <h2>{collection.node.title}</h2>
+                        <p>{collection.node.description}</p>
+                    </Link>                
+                )
+            }
             </div>
-          )}
         </div>
-    );
+    )
 }

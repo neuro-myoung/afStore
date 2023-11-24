@@ -150,8 +150,19 @@ function ProductMain({selectedVariant, product, variants}) {
   return (
     <div className="product-main">
       <h1>{title}</h1>
-      <ProductPrice selectedVariant={selectedVariant} />
       <br />
+
+      <ProductPrice selectedVariant={selectedVariant} />
+
+      <br />
+      <hr />
+      <p>
+        <strong>Description</strong>
+      </p>
+      <br />
+      <div className = 'desc' dangerouslySetInnerHTML={{__html: descriptionHtml}} />
+      <br />
+      <hr />
       <Suspense
         fallback={
           <ProductForm
@@ -174,14 +185,7 @@ function ProductMain({selectedVariant, product, variants}) {
           )}
         </Await>
       </Suspense>
-      <br />
-      <br />
-      <p>
-        <strong>Description</strong>
-      </p>
-      <br />
-      <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
-      <br />
+      
     </div>
   );
 }
@@ -307,6 +311,7 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
             type="submit"
             onClick={onClick}
             disabled={disabled ?? fetcher.state !== 'idle'}
+            className = "primary-button"
           >
             {children}
           </button>
