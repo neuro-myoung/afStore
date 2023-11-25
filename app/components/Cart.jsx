@@ -99,15 +99,7 @@ function CartLineItem({layout, line}) {
           </p>
         </Link>
         <CartLinePrice line={line} as="span" />
-        <ul>
-          {selectedOptions.map((option) => (
-            <li key={option.name}>
-              <small>
-                {option.name}: {option.value}
-              </small>
-            </li>
-          ))}
-        </ul>
+        <br/>
         <CartLineQuantity line={line} />
       </div>
     </li>
@@ -169,7 +161,7 @@ function CartLineRemoveButton({lineIds}) {
       action={CartForm.ACTIONS.LinesRemove}
       inputs={{lineIds}}
     >
-      <button type="submit">Remove</button>
+      <button className="cart-button" type="submit">Remove</button>
     </CartForm>
   );
 }
@@ -185,13 +177,14 @@ function CartLineQuantity({line}) {
 
   return (
     <div className="cart-line-quantiy">
-      <small>Quantity: {quantity} &nbsp;&nbsp;</small>
+      <small> <strong>Quantity:</strong> {quantity} &nbsp;&nbsp;</small>
       <CartLineUpdateButton lines={[{id: lineId, quantity: prevQuantity}]}>
         <button
           aria-label="Decrease quantity"
           disabled={quantity <= 1}
           name="decrease-quantity"
           value={prevQuantity}
+          className="cart-button"
         >
           <span>&#8722; </span>
         </button>
@@ -202,6 +195,7 @@ function CartLineQuantity({line}) {
           aria-label="Increase quantity"
           name="increase-quantity"
           value={nextQuantity}
+          className="cart-button"
         >
           <span>&#43;</span>
         </button>

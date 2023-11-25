@@ -96,7 +96,7 @@ aside p:last-child {
 aside .cart-line {
   padding: 0.25rem !important;
   margin-bottom: 0.5rem !important;
-  background-color: rgba(180,180,180,0.9);
+  background-color: #e3e3e3;
 }
 
 .overlay {
@@ -390,6 +390,18 @@ a:hover {
   transform: scale(1.05);
 }
 
+.cart-button {
+  border:solid 1px #c1c1c1;
+  border-radius: 2px;
+  cursor: pointer;
+  padding: 0.5rem !important;
+  background: none;
+}
+
+.cart-button:hover {
+  background-color:'#fff';
+}
+
 /*
 * --------------------------------------------------
 * components/Collections
@@ -504,13 +516,13 @@ background: linear-gradient(45deg, rgba(163,0,93,1) 0%, rgba(163,0,93,1) 27%, rg
 
 .cart-line {
   display: flex;
-  padding: 0.75rem 0;
+  gap: 1rem;
+  border-radius: 3px;
 }
 
 .cart-line img {
   height: 100%;
   display: block;
-  margin-right: 0.75rem;
 }
 
 .cart-summary-page {
@@ -518,7 +530,6 @@ background: linear-gradient(45deg, rgba(163,0,93,1) 0%, rgba(163,0,93,1) 27%, rg
 }
 
 .cart-summary-aside {
-  background: white;
   border-top: 1px solid var(--color-dark);
   bottom: 0;
   padding-top: 0.75rem;
@@ -528,6 +539,7 @@ background: linear-gradient(45deg, rgba(163,0,93,1) 0%, rgba(163,0,93,1) 27%, rg
 
 .cart-line-quantiy {
   display: flex;
+  align-items:center;
 }
 
 .cart-discount {
@@ -772,7 +784,19 @@ background: linear-gradient(45deg, rgba(163,0,93,1) 0%, rgba(163,0,93,1) 27%, rg
 
 .product-image {
   width: 80%;
-  padding: 2rem !important;
+}
+
+.product-pg-image {
+  width: 100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.product-pg-image img{
+  width: 80%;
+  height:auto;
+  max-width: 600px;
 }
 
 .product-image img {

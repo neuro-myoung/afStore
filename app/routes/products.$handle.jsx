@@ -123,16 +123,17 @@ export default function Product() {
  */
 function ProductImage({image}) {
   if (!image) {
-    return <div className="product-image" />;
+    return <div className="product-pg-image" />;
   }
   return (
-    <div className="product-image">
+    <div className="product-pg-image">
       <Image
         alt={image.altText || 'Product Image'}
         aspectRatio="1/1"
         data={image}
         key={image.id}
-        sizes="(min-width: 45em) 50vw, 100vw"
+        sizes="(min-width: 40em) 40vh, 90vw"
+        width='300'
       />
     </div>
   );
@@ -332,7 +333,7 @@ const PRODUCT_VARIANT_FRAGMENT = `#graphql
     image {
       __typename
       id
-      url
+      url(transform: {maxWidth: 400, crop: CENTER})
       altText
       width
       height
