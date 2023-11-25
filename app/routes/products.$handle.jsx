@@ -333,7 +333,7 @@ const PRODUCT_VARIANT_FRAGMENT = `#graphql
     image {
       __typename
       id
-      url(transform: {maxWidth: 400, crop: CENTER})
+      url(transform: {maxWidth: 800, crop: CENTER})
       altText
       width
       height
