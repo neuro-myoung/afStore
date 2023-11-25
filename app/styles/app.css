@@ -797,7 +797,7 @@ background: linear-gradient(45deg, rgba(163,0,93,1) 0%, rgba(163,0,93,1) 27%, rg
 .product-pg-image img{
   width: 80%;
   height:auto;
-  max-width: 800px;
+  max-width: 600px;
 }
 
 .product-image img {
