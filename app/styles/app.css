@@ -246,6 +246,7 @@ a:hover {
 
 .hero-wrapper {
   height: 80vh;
+  max-height: 600px;
   width: 100vw;
   background: #0e0008;
   overflow-y: hidden;
@@ -796,7 +797,7 @@ background: linear-gradient(45deg, rgba(163,0,93,1) 0%, rgba(163,0,93,1) 27%, rg
 .product-pg-image img{
   width: 80%;
   height:auto;
-  max-width: 600px;
+  max-width: 800px;
 }
 
 .product-image img {
@@ -808,6 +809,10 @@ background: linear-gradient(45deg, rgba(163,0,93,1) 0%, rgba(163,0,93,1) 27%, rg
   align-self: start;
   position: sticky;
   top: 6rem;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  height: 100%;
 }
 
 .product-price {
